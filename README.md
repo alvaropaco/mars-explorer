@@ -1,5 +1,5 @@
 # CargoX Coding Challenger 
-[![CircleCI](https://circleci.com/gh/alvaropaco/mars-explorer/tree/master.svg?style=svg)](https://circleci.com/gh/alvaropaco/mars-explorer/tree/master)
+[![CircleCI](https://circleci.com/gh/alvaropaco/mars-explorer.svg?style=svg)](https://circleci.com/gh/alvaropaco/mars-explorer/tree/master)
 
 ### Description
 
