@@ -8,61 +8,27 @@ class ProbeTest(unittest.TestCase):
 
     def setUp(self):
         super(ProbeTest, self).setUp()
-        self.ECOSYSTEM = {
-            (2, 2),
-            (1, 2),
-            (0, 2),
-            (2, 1),
-        }
 
-        self.dimensions = [20, 20]
+        self.Probe = Probe('5', '5', '1', '2', 'N')
 
-        self.Probe = Probe(self.dimensions[0], self.dimensions[1], self.ECOSYSTEM)
+        self.Probe.explore("LMLMLMLMM")
 
         self.__str__ = str(self.Probe)
-
-        self.first_generation = [6, 47, 86, 88]
 
     def test_Probe_instance(self):
-        """
-            The Probe needs initialize with a required params
-            and returns a correct instance
-        """
-        Probe = self.Probe
+        new_probe = Probe('5', '5', '3', '3', 'E')
 
-        # Testing if is assigned successfully
-        self.assertTrue(isinstance(Probe, Probe))
+        self.assertTrue(isinstance(new_probe, Probe))
 
-        # Testing life generation
-        self.assertEqual(len(self.__str__), 820)
+    def test_Probe_explore(self):
+        self.assertEqual(self.__str__, "1 3 N")
 
-        # Testing number of alive cells
-        self.assertEqual(self.__str__.count("*"), 4)
+    def test_Probe_explore(self):
+        with self.assertRaises(Exception) as context:
+            Probe('5', '5', '$', '3', 'E')
 
-        # Testing correct elements
-        self.assertTrue(True for p in self.first_generation if self.__str__[p] == "*")
-
-    def test_next_generation(self):
-        """
-         The next_generation advances one generation
-        """
-        Probe = self.Probe
-
-        # Testing previous generation
-        self.assertTrue(True for char in self.first_generation if char == "*")
-
-        # Generate life
-        self.Probe.next_generation()
-        self.__str__ = str(self.Probe)
-
-        # Testing number of alive cells
-        self.assertEqual(self.__str__.count("*"), 4)
-
-        # Second generation
-        second_generation = [47, 49, 86, 88]
-
-        # Testing second generation
-        self.assertTrue(True for p in second_generation if self.__str__[p] == "*")
+        self.assertTrue('invalid literal for int() with base 10: \'$\''
+                         in context.exception)
 
 if __name__ == '__main__':
     unittest.main()
