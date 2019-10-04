@@ -1,14 +1,15 @@
 class Probe:
     """Probe implementation
     Usage::
-        >>> import game
-        >>> game = Game(20, 20, [(2,1), (0, 1), (0, 2)])
-        >>> print(game)
-        >>> game.next_generation()
-        >>> print(game)
-    :param init_x: number of columns
-    :param init_y: number of rows
-    :param init_d: initial cells population
+        >>> from probe import Probe
+        >>> probe = Probe(5, 5, 0, 0, "N")
+        >>> proble.explore("LMMLMLMRMLLM")
+        >>> print(probe)
+    :param map_h: map length
+    :param map_w: map width
+    :param init_x: horizontal initial position
+    :param init_y: lenght initial position
+    :param init_d: initial probe orientation
     """
     
     def __init__(self, map_h=0, map_w=0, init_x=0, init_y=0, init_d="N"):
@@ -20,16 +21,23 @@ class Probe:
         self.cur_x = int(init_x)
         self.cur_y = int(init_y)
         self.cur_d = init_d
-        self.cur_degree = 0
         self.directions = {
             90: "N", 
             270: "S", 
-            0: "L", 
+            0: "E", 
             180: "W"
         }
 
+        self.degrees = {
+            "N": 90, 
+            "S": 270, 
+            "E": 0, 
+            "W": 180
+        }
+
+        self.cur_degree = self.degrees.get(init_d)
+
     def __str__(self):
-        print "%s %s %s" % (self.cur_x, self.cur_y, self.cur_d)
         return str("%s %s %s" % (self.cur_x, self.cur_y, self.cur_d))
 
     def explore(self, instructions):
@@ -60,7 +68,7 @@ class Probe:
         if self.cur_d == "W":
             if self.cur_x > 0:
                 self.cur_x = self.cur_x - 1
-
+        
     def __spin_R(self):
         degree = self.__set_degree("R")
         self.cur_d = self.directions.get(degree)
