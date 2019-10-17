@@ -93,6 +93,10 @@ Sinta-se livre para entrar em contato conosco sempre que
 necessário! 
 A CargoX agradece seu interesse e te deseja BOA SORTE! 
 
+## How to Build
+
+`docker build -t cargox .`
+
 ## How To Run
 
 The proggram is executed running the docker image passing the input line by arguments:
