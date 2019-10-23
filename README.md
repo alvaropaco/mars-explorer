@@ -1,12 +1,9 @@
-# CargoX Coding Challenger 
+# Coding Challenger 
 [![CircleCI](https://circleci.com/gh/alvaropaco/mars-explorer.svg?style=svg)](https://circleci.com/gh/alvaropaco/mars-explorer/tree/master)
 
 ### Description
 
-Cargox Coding Challenge 
-Bem vindo! Se você está aqui é porque gostamos do seu perfil e 
-queremos conhecer um pouco mais sobre suas habilidades como 
-desenvolvedor.
+Coding Challenge 
 
 ### Teste 
 
@@ -111,4 +108,4 @@ Simillar to the execution, just run the following command line:
 
 ## Final considerations
 
-As a coding challenge this test required a logicall think to solve the main problem of exploration and orientation and proggramming skills with Objects, collections and iterations. Was a good exercise for me =)
+As a coding challenge this test required a logicall think to solve the main problem of exploration and orientation and programming skills with Objects, collections and iterations. Was a good exercise for me =)
